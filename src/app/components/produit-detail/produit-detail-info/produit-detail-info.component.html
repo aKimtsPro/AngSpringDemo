@@ -1,0 +1,12 @@
+<div *ngIf="produit">
+    <h2>{{ produit.nom }}</h2>
+
+    <dl>
+        <dt>id</dt>
+        <dd>{{ produit.id }}</dd>
+        <dt>prix</dt>
+        <dd>{{ produit.prix }}</dd>
+        <dt>marque</dt>
+        <dd>{{ produit.marque.nom }}</dd>
+    </dl>
+</div>

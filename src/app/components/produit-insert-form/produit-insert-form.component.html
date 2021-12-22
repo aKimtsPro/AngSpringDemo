@@ -1,0 +1,38 @@
+
+<h2>Ajout de produit</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="input-nom">nom :</label>
+        <input type="text" class="form-control" id="input-nom" formControlName="nom">
+        <ul>
+            <li *ngFor="let err of nomErrors" class="red">{{ err }}</li>
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <label for="input-prix">prix :</label>
+        <input type="number" class="form-control" min="0" id="input-prix" formControlName="prix">
+        <ul>
+            <li *ngFor="let err of prixErrors" class="red">{{ err }}</li>
+        </ul>
+    </div>
+
+    <div class="form-group">
+        <label for="input-marque">marque :</label>
+        <select type="text" class="form-control" id="input-marque" formControlName="marque_id">
+            <option [value]="marque.id" *ngFor="let marque of (listMarque$ | async)">{{ marque.nom }}</option>
+        </select>
+        <ul>
+            <li *ngFor="let err of marqueErrors" class="red">{{ err }}</li>
+        </ul>
+    </div>
+
+    <ul>
+        <li *ngFor="let err of globalErrors" class="red">{{ err }}</li>
+    </ul>
+
+    <button type="submit" class="btn btn-info">envoyer</button>
+
+</form>
